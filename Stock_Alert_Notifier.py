@@ -4,6 +4,16 @@ from datetime import datetime
 from timeloop import Timeloop
 from datetime import timedelta
 from twilio.rest import Client
+
+#code added by Sachin
+def getStockData(ticker):
+    base_url = "https://financialmodelingprep.com/api/v3/quote/"
+    key = "771b5a44aa3356ba5194abbfc2e84de3"
+    full_url = base_url + ticker + "?apikey=" + key
+    r = requests.get(full_url)
+    stock_data= r.json()
+    return stock_data
+
 #code added by Shivam
 
 def sendMessage(text):
