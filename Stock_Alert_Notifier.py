@@ -14,6 +14,22 @@ def getStockData(ticker):
     stock_data= r.json()
     return stock_data
 
+#code added by nakshtra
+def generateMessage(data):
+    symbol = data[0]['symbol']
+    price = data[0]["price"]
+    changesPercent = data[0]["changesPercentage"]
+    timestamp = data[0]['timestamp']
+
+    current = datetime.fromtimestamp(timestamp)
+    message = "Hello! This  is the Stock Market Details " + str(current)
+    message += "\n" + symbol
+    message += "\n$" + str(price)
+    if (changesPercent < -2):
+        message += "\nWarning! Price drop more than 2%!"
+
+    return message
+
 #code added by Shivam
 
 def sendMessage(text):
